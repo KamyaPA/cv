@@ -1,6 +1,6 @@
 local create_date = require'./config/date.lua'
 
-local github_link = "\\url{https://github.com}"
+local github_link = "\\url{https://github.com/KamyaPA/cv/}"
 
 return {
 	config = {
