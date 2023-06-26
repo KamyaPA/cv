@@ -54,11 +54,11 @@
 }
 
 \def\cvlanguage#1#2{
-	\cvtextmovein #1 | #2 \\
+	#1 | #2 \\
 }
 
 \def\cvprogrammingloop#1{
-	\directlua{
+	\directlua{%
 		for _,v in pairs(CONFIG.#1) do tex.sprint(
 			"\\cvprogrammingbox{"
 			.. v.language
@@ -67,7 +67,7 @@
 			.. "}"
 		)
 		end
-	}
+	}%
 }
 
 \def\cvprogrammingbox#1#2{
@@ -95,18 +95,18 @@
 }
 
 \def\cvcontact{
-	{\Large\cvvar{contact.title}}\\
-	\cvtextmovein\cvvar{contact.email.title}:\cvvar{contact.email.value}\\
-	\cvtextmovein\cvvar{contact.phone.title}:\cvvar{contact.phone.value}\\
+	\cvtextmoveout{\Large\cvvar{contact.title}}\\
+	\cvvar{contact.email.title}:\cvvar{contact.email.value}\\
+	\cvvar{contact.phone.title}:\cvvar{contact.phone.value}\\
 }
 
 \def\cvlanguages {
-	{\Large\cvvar{languages.title}}\\
+	\cvtextmoveout{\Large\cvvar{languages.title}}\\
 	\cvlanguageloop{languages.entrances}
 }
 
 \def\cvprogramming {
-	{\Large\cvvar{programming.title}}\\
+	\cvtextmoveout{\Large\cvvar{programming.title}}\\
 	\cvvar{programming.description}\\
 	\cvprogrammingloop{programming.entrances}
 }
@@ -135,21 +135,20 @@
 	\node[anchor = north west, cv text right](name) at ($(split-north) - (0, \cvmargin)$){\cvtextmoveout\Huge\bf\cvvar{name}};
 	\node[below = of name.south west, anchor = north west, cv text right](experience){\cvexperience};
 	\node[below = of experience.south west, anchor = north west, cv text right](education){\cveducation};
-	\node[below = of education.south west, anchor = north west, cv text right](experience){\cvinformation};
+	%\node[below = of education.south west, anchor = north west, cv text right](information){\cvinformation};
 
 	%% Draw left 
 	\node[anchor = north east, cv text left](picture) at ($(split-north) - (0, \cvmargin)$){
 		\begin{center}
-		\includegraphics[width=0.618\textwidth]{./img/me.jpg}
+		\includegraphics[width=0.618\textwidth, angle=-90]{./img/me.jpg}
 		\end{center}
 	};
-	\node[anchor = north west, cv text left](contact information) at (picture.south west){\cvcontact};
+	\node[below = of picture.south west, anchor = north west, cv text left](contact information){\cvcontact};
 	\node[anchor = north west, cv text left](languages) at (contact information.south west){\cvlanguages};
 	\node[anchor = north west, cv text left](programming) at (languages.south west){\cvprogramming};
 
 	%% Draw footer
-	\node[anchor = south west, cv text right](experience)
-	at ($(split-south) + (0, \cvmargin)$)
+	\node[below = of education.south west, anchor = north west, cv text right](experience)
 	{\small\cvtextmoveout\cvvar{link}};
 
 	%% Finish
