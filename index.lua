@@ -88,8 +88,8 @@ return {
 		programming = {
 			title = { uk = "Programmig Languages", da = "Programmigssporg", de = "Programirungssprache"},
 			description = { 
-				uk = "Languages i've used before, and how conferable I fell about them on a scale of 0 to 9." ,
-				da = "Sprog jeg har brugt før, og hvor komfotable jeg er med dem på en scala fra 0 til 9.",
+				uk = "Languages i've used before, and how comfortable I fell about them on a scale of 0 to 9." ,
+				da = "Sprog jeg har brugt før, og hvor komfortable jeg er med dem på en skala fra 0 til 9.",
 				de = "Sprachen ich benutzt haben, und wie komfortable ich daein fühle"
 			},
 			entrances = {
@@ -132,6 +132,10 @@ return {
 				{
 					language = "\\LaTeX",
 					level = 7
+				},
+				{
+					language = "PHP",
+					level = 3
 				},
 			}
 		},
