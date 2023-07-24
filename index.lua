@@ -36,7 +36,7 @@ return {
 				{
 					where = { default = "DeLiF"},
 					from = create_date("jan", 2021),
-					to = create_date("aug", 2021),
+					to = create_date("apr", 2021),
 					description = { uk = "Intensive B2 German Course in Switzerland", da = "Intensivt B2 Tyskkursus i Schweiz", de = "Intensief B2 Deutchkurs in der Schweiz" }
 				},
 				{
@@ -58,7 +58,7 @@ return {
 			entrances = {
 				{
 					where = { uk = "Skiold A/S", da = "Skiold A/S", de = "Skiold A/S"},
-					from = create_date("aug", 2021),
+					from = create_date("apr", 2021),
 					to = create_date("jun", 2021),
 					description = {
 						uk = "I was using VBA and Excel macros to convert their financial accounting to an other format. Afterwards I made a macro to create prize estimates for establishing their machines.",
