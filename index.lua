@@ -122,7 +122,11 @@ return {
 					level = 4
 				},
 				{
-					language = "JavaScript, HTML, CSS",
+					language = "HTML, CSS",
+					level = 5
+				},
+				{
+					language = "JavaScript",
 					level = 5
 				},
 				{
@@ -135,7 +139,7 @@ return {
 				},
 				{
 					language = "PHP",
-					level = 3
+					level = 5
 				},
 			}
 		},

@@ -58,6 +58,7 @@
 }
 
 \def\cvprogrammingloop#1{
+	\begin{multicols}{2}
 	\directlua{%
 		for _,v in pairs(CONFIG.#1) do tex.sprint(
 			"\\cvprogrammingbox{"
@@ -68,11 +69,14 @@
 		)
 		end
 	}%
+	\end{multicols}
 }
 
 \def\cvprogrammingbox#1#2{
 	\begin{tikzpicture}
-		\node[draw, fill = green!#20!red, rounded corners](level){#2};
+		\node[draw, fill = green!#20!red, rounded corners](level){
+			#2
+		};
 		\node[right = 0pt of level]{#1};
 	\end{tikzpicture}
 	\\
@@ -138,14 +142,16 @@
 	%\node[below = of education.south west, anchor = north west, cv text right](information){\cvinformation};
 
 	%% Draw left 
-	\node[anchor = north east, cv text left](picture) at ($(split-north) - (0, \cvmargin)$){
+	\node[anchor = north east, cv text left, rounded corners](picture) at ($(split-north) - (0, \cvmargin)$){
 		\begin{center}
-		\includegraphics[width=0.618\textwidth, angle=-90]{./img/me.jpg}
+		\includegraphics[width=\textwidth, angle=-90]{./img/me.jpg}
 		\end{center}
 	};
-	\node[below = of picture.south west, anchor = north west, cv text left](contact information){\cvcontact};
+	\node[below = 0pt of picture.south west, anchor = north west, cv text left](contact information){\cvcontact};
 	\node[anchor = north west, cv text left](languages) at (contact information.south west){\cvlanguages};
-	\node[anchor = north west, cv text left](programming) at (languages.south west){\cvprogramming};
+	\node[anchor = north west, cv text left](programming) at (languages.south west){
+		\cvprogramming
+	};
 
 	%% Draw footer
 	\node[below = of education.south west, anchor = north west, cv text right](experience)
